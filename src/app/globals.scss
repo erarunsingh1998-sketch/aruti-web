@@ -1,0 +1,110 @@
+@use "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+/* ==========================================
+   ARUTI AI - RICH TACTICAL CYAN PALETTE
+   ========================================== */
+
+:root {
+  --bg-color: #F8FAFC;              /* Clean Snow */
+  --surface: #FFFFFF;
+  --surface-2: #F1F5F9;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-highlight: #2563EB;
+
+  /* Buttons */
+  --btn-primary-bg: #111827;
+  --btn-primary-text: #FFFFFF;
+
+  --btn-secondary-bg: #EFF6FF;
+  --btn-secondary-text: #1E3A8A;
+
+  /* Cards */
+  --tile-1: #FFFFFF;
+  --tile-2: #F8FAFC;
+  --tile-3: #F1F5F9;
+  --tile-4: #EEF2FF;
+  --tile-5: #E0E7FF;
+  --tile-6: #DBEAFE;
+
+  --border: rgba(15,23,42,.08);
+}
+
+html.dark {
+  --bg-color: #050816;
+  --surface: #0B1120;
+  --surface-2: #101827;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-highlight: #60A5FA;
+
+  --btn-primary-bg: #3B82F6;
+  --btn-primary-text: #FFFFFF;
+
+  --btn-secondary-bg: #111827;
+  --btn-secondary-text: #CBD5E1;
+
+  --tile-1: #0B1120;
+  --tile-2: #111827;
+  --tile-3: #162033;
+  --tile-4: #1A2740;
+  --tile-5: #1D2B47;
+  --tile-6: #233554;
+
+  --border: rgba(255,255,255,.06);
+}
+/* ==========================================
+   GLOBAL BASE STYLES
+   ========================================== */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Helper utility for highlighted text */
+.text-highlight {
+  color: var(--text-highlight);
+}
+
+/* ==========================================
+   SCANNER ANIMATION & MODE DYNAMICS
+   ========================================== */
+
+.scanner-line {
+  background-color: var(--text-highlight);
+  /* Enhanced Neon Glow effect */
+  box-shadow: 
+    0 0 10px var(--text-highlight),
+    0 0 20px var(--text-highlight);
+}
+
+/* Scanner beam gradient trail */
+.scanner-line::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to top, var(--text-highlight), transparent);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.scanner-animation {
+  animation: scanner 2s ease-in-out infinite alternate;
+}
+
+@keyframes scanner {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
